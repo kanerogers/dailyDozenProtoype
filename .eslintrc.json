@@ -1,14 +1,29 @@
 {
-    "extends": "airbnb",
+    "extends": ["airbnb", "plugin:flowtype/recommended"],
+    "parser": "babel-eslint",
     "plugins": [
         "react",
         "jsx-a11y",
-        "import"
+        "import",
+        "flowtype"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "flowtype/require-return-type": [
+            2,
+            "always",
+            {
+              "excludeArrowFunctions": "expressionsOnly"
+            }
+        ]
+
     },
     "env": {
       "jest": true
+    },
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      }
     }
 }

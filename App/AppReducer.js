@@ -1,71 +1,108 @@
-import lodash from 'lodash';
+// @flow
+import moment from 'moment';
+import SERVING_DATA from './data';
 
-const INITIAL_STATE = {
-  currentProgress: 0,
-  servings: [
-    { name: 'Beans', servingSize: 3, currentServings: 0 },
-    { name: 'Beverages', servingSize: 2, currentServings: 0 },
-    { name: 'Berries', servingSize: 3, currentServings: 0 },
-    { name: 'Peas', servingSize: 3, currentServings: 0 },
-    { name: 'Rhubarb', servingSize: 3, currentServings: 0 },
-    { name: 'Donuts', servingSize: 3, currentServings: 0 },
-  ],
+export type ServingKey =
+  | 'beans'
+  | 'berries'
+  | 'other_fruits'
+  | 'cruciferous_vegetables'
+  | 'greens'
+  | 'flaxseeds'
+  | 'nuts'
+  | 'spices'
+  | 'whole_grains'
+  | 'beverages'
+  | 'exercise'
+  | 'other_vegetables';
+
+export const ServingKeys: Array<ServingKey> = [
+  'beans',
+  'berries',
+  'other_fruits',
+  'cruciferous_vegetables',
+  'greens',
+  'other_vegetables',
+  'flaxseeds',
+  'nuts',
+  'spices',
+  'whole_grains',
+  'beverages',
+  'exercise',
+];
+
+const maxServingsForKey = (key: ServingKey): number => SERVING_DATA[key].dailyServings;
+
+export type ServingProgress = {
+  total: number,
+  [ServingKey]: number,
 };
 
-const getTotalServings = servings =>
-  lodash.chain(servings)
-    .map('currentServings')
-    .sum()
-    .value();
+export type AppState = {
+  [string]: ServingProgress,
+};
 
-export default (state = INITIAL_STATE, action) => {
+export type AppAction =
+  | {
+      type: 'INCREMENT_SERVING',
+      key: ServingKey,
+    }
+  | {
+      type: 'DECREMENT_SERVING',
+      key: ServingKey,
+    };
+
+const buildAppState = (): ServingProgress =>
+  ServingKeys.reduce((result, key) => ({ ...result, [key]: 0 }), { total: 0 });
+
+const TODAY = moment().format('YYYY-MM-DD');
+
+const INITIAL_STATE: AppState = {
+  [TODAY]: buildAppState(),
+};
+
+export default (state: AppState = INITIAL_STATE, action: AppAction): AppState => {
   switch (action.type) {
     case 'INCREMENT_SERVING': {
-      const { servings } = state;
-      const { name } = action;
-      const index = lodash.findIndex(servings, { name });
-      const servingToUpdate = servings[index];
-      if (servingToUpdate.servingSize === servingToUpdate.currentServings) { return state; }
+      const progress = state[TODAY];
+      const { key } = action;
 
-      const updatedServing = {
-        ...servingToUpdate,
-        currentServings: servingToUpdate.currentServings + 1,
+      const currentServingsForKey = progress[key];
+
+      if (currentServingsForKey >= maxServingsForKey(key)) {
+        return state;
+      }
+
+      const updatedProgress = {
+        ...progress,
+        total: progress.total + 1,
+        [key]: progress[key] + 1,
       };
-
-      const updatedServings = [
-        ...servings.slice(0, index),
-        updatedServing,
-        ...servings.slice(index + 1),
-      ];
 
       return {
         ...state,
-        currentProgress: getTotalServings(updatedServings),
-        servings: updatedServings,
+        [TODAY]: updatedProgress,
       };
     }
     case 'DECREMENT_SERVING': {
-      const { servings } = state;
-      const { name } = action;
-      const index = lodash.findIndex(servings, { name });
-      const servingToUpdate = servings[index];
-      if (servingToUpdate.currentServings === 0) { return state; }
+      const progress = state[TODAY];
+      const { key } = action;
 
-      const updatedServing = {
-        ...servingToUpdate,
-        currentServings: servingToUpdate.currentServings - 1,
+      const currentServingsForKey = progress[key];
+
+      if (currentServingsForKey === 0) {
+        return state;
+      }
+
+      const updatedProgress = {
+        ...progress,
+        total: progress.total - 1,
+        [key]: progress[key] - 1,
       };
-
-      const updatedServings = [
-        ...servings.slice(0, index),
-        updatedServing,
-        ...servings.slice(index + 1),
-      ];
 
       return {
         ...state,
-        currentProgress: getTotalServings(updatedServings),
-        servings: updatedServings,
+        [TODAY]: updatedProgress,
       };
     }
     default: {
