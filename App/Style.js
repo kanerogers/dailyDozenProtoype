@@ -31,9 +31,11 @@ export default {
     backgroundColor: LIGHT_GREY,
   },
   header: {
+    color: BLACK,
     textAlign: 'left',
-    fontWeight: 'bold',
+    fontWeight: '700',
     fontSize: 16,
+    paddingBottom: 8,
   },
   subContainer: {
     marginBottom: 16,
@@ -159,5 +161,19 @@ export default {
     borderColor: THEME_GREEN,
     borderWidth: 2,
   },
+  listItem: {
+    marginTop: 4,
+    fontSize: 13,
+    color: BLACK,
+  },
+  underline: {
+    marginTop: 4,
+    backgroundColor: LIGHT_GREY,
+    height: 1,
+    width: width - 48,
+    marginBottom: 4,
+  },
+  listItemContainer: {
+    marginHorizontal: 4,
+  },
 };
-

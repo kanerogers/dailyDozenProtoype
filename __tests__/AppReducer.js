@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
-import lodash from 'lodash';
+import moment from 'moment';
+
 import AppReducer from '../App/AppReducer';
 
 it('returns the initial state', () => {
@@ -8,63 +9,61 @@ it('returns the initial state', () => {
   expect(newState).toMatchSnapshot();
 });
 
+const TODAY = moment().format('YYYY-MM-DD');
+
 describe('INCREMENT_SERVING', () => {
   it('increments a serving if it is less than the servingSize', () => {
     const store = createStore(AppReducer);
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
 
     const newState = store.getState();
-    const { servings } = newState;
-    const beans = lodash.find(servings, { name: 'Beans' });
+    const progress = newState[TODAY];
+    const { beans } = progress;
 
-    expect(beans.currentServings).toEqual(1);
+    expect(beans).toEqual(1);
   });
 
-  it('does nothing if the serving is already at servingSize', () => {
+  it('does nothing if the serving is already at its dailyServings', () => {
     const store = createStore(AppReducer);
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
 
-    const newState = store.getState();
-    const { servings } = newState;
-    const beans = lodash.find(servings, { name: 'Beans' });
+    let state = store.getState();
+    let progress = state[TODAY];
 
-    expect(beans.currentServings).toEqual(3);
+    expect(progress.beans).toEqual(3);
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
 
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
-    const finalState = store.getState();
-    expect(finalState).toEqual(newState);
+    state = store.getState();
+    progress = state[TODAY];
+
+    expect(progress.beans).toEqual(3);
   });
 });
 
 describe('DECREMENT_SERVING', () => {
   it('does nothing if a serving is at zero', () => {
     const store = createStore(AppReducer);
-    store.dispatch({ type: 'DECREMENT_SERVING', name: 'Beans' });
+    store.dispatch({ type: 'DECREMENT_SERVING', key: 'beans' });
 
-    const newState = store.getState();
-    const { servings } = newState;
-    const beans = lodash.find(servings, { name: 'Beans' });
+    const state = store.getState();
+    const progress = state[TODAY];
 
-    expect(beans.currentServings).toEqual(0);
+    expect(progress.beans).toEqual(0);
   });
 
   it('increments a serving if it is greater than zero', () => {
     const store = createStore(AppReducer);
-    store.dispatch({ type: 'INCREMENT_SERVING', name: 'Beans' });
+    store.dispatch({ type: 'INCREMENT_SERVING', key: 'beans' });
 
-    const newState = store.getState();
-    const { servings } = newState;
-    const beans = lodash.find(servings, { name: 'Beans' });
+    let state = store.getState();
+    let progress = state[TODAY];
+    expect(progress.beans).toEqual(1);
 
-    expect(beans.currentServings).toEqual(1);
-
-    store.dispatch({ type: 'DECREMENT_SERVING', name: 'Beans' });
-    const finalState = store.getState();
-    const finalServings = finalState.servings;
-    const finalBeans = lodash.find(finalServings, { name: 'Beans' });
-
-    expect(finalBeans.currentServings).toEqual(0);
+    store.dispatch({ type: 'DECREMENT_SERVING', key: 'beans' });
+    state = store.getState();
+    progress = state[TODAY];
+    expect(progress.beans).toEqual(0);
   });
 });

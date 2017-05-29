@@ -1,0 +1,354 @@
+{
+	"beans": {
+		"name": "Beans",
+		"types": [
+			"Black beans",
+			"Black-eyed peas",
+			"Butter beans",
+			"Cannellini beans",
+			"Chickpeas",
+			"Edamame",
+			"English peas",
+			"Garbanzo beans",
+			"Great northern beans",
+			"Kidney beans",
+			"Lentils (beluga, french, and red varieties)",
+			"Miso",
+			"Navy beans",
+			"Pinto beans",
+			"Small red beans",
+			"Split peas (yellow or green)",
+			"Tempeh"
+		],
+		"dailyServings": 3,
+		"servingSuggestions": [
+			"¼ cup of hummus or bean dip",
+			"½ cup cooked beans, split peas, lentils, tofu, or tempeh",
+			"1 cup of fresh peas or sprouted lentils"
+		]
+	},
+	"berries": {
+		"name": "Berries",
+		"types": [
+			"Acai berries",
+			"Barberries",
+			"Blackberries",
+			"Blueberries",
+			"Cherries (sweet or tart)",
+			"Concord grapes",
+			"Cranberries",
+			"Goji berries",
+			"Kumquats",
+			"Mulberries",
+			"Raspberries (black or red)",
+			"Strawberries"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"½ cup fresh or frozen",
+			"¼ cup dried"
+		]
+	},
+	"other_fruits": {
+		"name": "Other Fruits",
+		"types": [
+			"Apples",
+			"Dried apricots",
+			"Avocados",
+			"Bananas",
+			"Cantaloupe",
+			"Clementines",
+			"Dates",
+			"Dried figs",
+			"Grapefruit",
+			"Honeydew",
+			"Kiwifruit",
+			"Lemons",
+			"Limes",
+			"Lychees",
+			"Mangos",
+			"Nectarines",
+			"Oranges",
+			"Papaya",
+			"Passion fruit",
+			"Peaches",
+			"Pears",
+			"Pineapple",
+			"Plums (especially black plums)",
+			"Pluots",
+			"Pomegranates",
+			"Prunes",
+			"Tangerines",
+			"Watermelon"
+		],
+		"dailyServings": 3,
+		"servingSuggestions": [
+			"1 medium-sized fruit",
+			"1 cup cut-up fruit",
+			"¼ cup dried fruit"
+		]
+	},
+	"cruciferous_vegetables": {
+		"name": "Cruciferous Vegetables",
+		"types": [
+			"Arugula",
+			"Bok choy",
+			"Broccoli",
+			"Brussels sprouts",
+			"Cabbage",
+			"Cauliflower",
+			"Collard greens",
+			"Horseradish",
+			"Kale (black, green, and red)",
+			"Mustard greens",
+			"Radishes",
+			"Turnip greens",
+			"Watercress"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"½ cup chopped",
+			"¼ cup Brussels or broccoli sprouts",
+			"1 tablespoon horseradish"
+		]
+	},
+	"greens": {
+		"name": "Greens",
+		"types": [
+			"Arugula",
+			"Beet greens",
+			"Collard greens",
+			"Kale (black, green, and red)",
+			"Mesclun mix (assorted young salad greens)",
+			"Mustard greens",
+			"Sorrel",
+			"Spinach",
+			"Swiss chard",
+			"Turnip greens"
+		],
+		"dailyServings": 2,
+		"servingSuggestions": [
+			"1 cup raw",
+			"½ cup cooked"
+		]
+	},
+	"other_vegetables": {
+		"name": "Other Vegetables",
+		"types": [
+			"Artichokes",
+			"Asparagus",
+			"Beets",
+			"Bell peppers",
+			"Carrots",
+			"Corn",
+			"Garlic",
+			"Mushrooms (button, oyster, portobello, and shiitake)",
+			"Okra",
+			"Onions",
+			"Purple potatoes",
+			"Pumpkin",
+			"Sea vegetables (arame, dulse, and nori)",
+			"Snap peas",
+			"Squash (delicata, summer, and spaghetti squash varieties)",
+			"Sweet potatoes/yams",
+			"Tomatoes",
+			"Zucchini"
+		],
+		"dailyServings": 2,
+		"servingSuggestions": [
+			"1 cup raw leafy vegetables",
+			"½ cup raw or cooked nonleafy vegetables",
+			"½ cup vegetable juice",
+			"¼ cup dried mushrooms"
+		]
+	},
+	"flaxseeds": {
+		"name": "Flaxseeds",
+		"types": [
+			"Brown flaxseeds",
+			"Golden flaxseeds"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"1 tablespoon ground"
+		]
+	},
+	"nuts": {
+		"name": "Nuts",
+		"types": [
+			"Almonds",
+			"Brazil nuts",
+			"Cashews",
+			"Chia seeds",
+			"Hazelnuts",
+			"Hemp seeds",
+			"Macadamia nuts",
+			"Pecans",
+			"Pistachios",
+			"Pumpkin seeds",
+			"Sesame seeds",
+			"Sunflower seeds",
+			"Walnuts"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"¼ cup nuts or seeds",
+			"2 tablespoons nut or seed butter"
+		]
+	},
+	"spices": {
+		"name": "Spices",
+		"types": [
+			"Allspice",
+			"Barberries",
+			"Basil",
+			"Bay leaves",
+			"Cardamom",
+			"Chili powder",
+			"Cilantro",
+			"Cinnamon",
+			"Cloves",
+			"Coriander",
+			"Cumin",
+			"Curry powder",
+			"Dill",
+			"Fenugreek",
+			"Garlic",
+			"Ginger",
+			"Horseradish",
+			"Lemongrass",
+			"Marjoram",
+			"Mustard powder",
+			"Nutmeg",
+			"Oregano",
+			"Smoked paprika",
+			"Parsley",
+			"Pepper",
+			"Peppermint",
+			"Rosemary",
+			"Saffron",
+			"Sage",
+			"Thyme",
+			"Turmeric",
+			"Vanilla"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"¼ teaspoon of turmeric",
+			"Any other (salt-free) herbs and spices you enjoy"
+		]
+	},
+	"whole_grains": {
+		"name": "Whole Grains",
+		"types": [
+			"Barley",
+			"Brown rice",
+			"Buckwheat",
+			"Millet",
+			"Oats",
+			"Popcorn",
+			"Quinoa",
+			"Rye",
+			"Teff",
+			"Whole-wheat pasta",
+			"Wild rice"
+		],
+		"dailyServings": 3,
+		"servingSuggestions": [
+			"½ cup hot cereal or cooked grains, pasta, or corn kernels",
+			"1 cup cold cereal",
+			"1 tortilla or slice of bread",
+			"½ a bagel or english muffin",
+			"3 cups popped popcorn"
+		]
+	},
+	"beverages": {
+		"name": "Beverages",
+		"types": [
+			"Black tea",
+			"Chai tea",
+			"Vanilla chamomile tea",
+			"Coffee",
+			"Earl grey tea",
+			"Green tea",
+			"Hibiscus tea",
+			"Hot chocolate",
+			"Jasmine tea",
+			"Lemon balm tea",
+			"Matcha tea",
+			"Almond blossom oolong tea",
+			"Peppermint tea",
+			"Rooibos tea",
+			"Water",
+			"White tea"
+		],
+		"dailyServings": 5,
+		"servingSuggestions": [
+			"One glass (12 ounces)"
+		]
+	},
+	"exercise": {
+		"name": "Exercise",
+		"types": [
+			"Bicycling",
+			"Canoeing",
+			"Dancing",
+			"Dodgeball",
+			"Downhill skiing",
+			"Fencing",
+			"Hiking",
+			"Housework",
+			"Ice-skating",
+			"Inline skating",
+			"Juggling",
+			"Jumping on a trampoline",
+			"Paddle boating",
+			"Playing frisbee",
+			"Roller-skating",
+			"Shooting baskets",
+			"Shoveling light snow",
+			"Skateboarding",
+			"Snorkeling",
+			"Surfing",
+			"Swimming recreationally",
+			"Tennis (doubles)",
+			"Treading water",
+			"Walking briskly (4 mph)",
+			"Water aerobics",
+			"Waterskiing",
+			"Yard work",
+			"Yoga",
+			"Backpacking",
+			"Basketball",
+			"Bicycling uphill",
+			"Circuit weight training",
+			"Cross-country skiing",
+			"Football",
+			"Hockey",
+			"Jogging",
+			"Jumping jacks",
+			"Jumping rope",
+			"Lacrosse",
+			"Push-ups",
+			"Pull-ups",
+			"Racquetball",
+			"Rock climbing",
+			"Rugby",
+			"Running",
+			"Scuba diving",
+			"Tennis (singles)",
+			"Soccer",
+			"Speed skating",
+			"Squash",
+			"Step aerobics",
+			"Swimming laps",
+			"Walking briskly uphill",
+			"Water jogging"
+		],
+		"dailyServings": 1,
+		"servingSuggestions": [
+			"90 minutes of moderate-intensity activity",
+			"40 minutes of vigorous-intensity activity"
+		]
+	}
+}
